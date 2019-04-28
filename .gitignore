@@ -1,0 +1,25 @@
+# C binaries
+*.d
+*.eep
+*.elf
+*.hex
+*.lss
+*.lst
+*.map
+*.o
+*.srec
+*.sym
+
+# Atmel Studio 7.0
+makedep.mk
+
+# code::blocks
+*.depend
+*build_log.html
+*.layout
+
+# notepad++
+*.bak
+
+# sandbox for testing
+./test/**
