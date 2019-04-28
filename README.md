@@ -6,6 +6,7 @@ This document will give some hints towards a working DMM-Board v3.0 with Code::B
 
 ## Software prerequisites
 Download and install the following software. Take a quick look at your AVR-GCC installation to determine if it contains AVR Libc and/or avrdude already.
+
 Software | Version | Demo 2019 | Comment
 -|-|-|-
 Code::Blocks | [17.12](http://www.codeblocks.org/downloads/26) | |
