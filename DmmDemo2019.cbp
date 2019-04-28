@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="DmmDemo2019" />
+		<Option pch_mode="2" />
+		<Option compiler="avr-gcc" />
+		<Option show_notes="1">
+			<notes>
+				<![CDATA[-----------------------------------------------------------------------------------------------------------------
+Welcome to DMM-Demo 2019 with Code::Blocks!
+-----------------------------------------------------------------------------------------------------------------
+
+Opening this project is just the last step to get your DMM-Board up and running - if you don't know what I'm talking about, I suggest you check out README.MD first! Otherwise - have fun!
+
+	Clean:	Delete all binaries
+	Debug:	Compile in "Debug" subfolders, no data is sent to your uC
+	Program:	Compile in "Release" subfolders and "Program" your uC!
+
+-----------------------------------------------------------------------------------------------------------------
+Disable this message in [Project -> Properties -> Notes] !
+-----------------------------------------------------------------------------------------------------------------]]>
+			</notes>
+		</Option>
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/DmmDemo2019.elf" prefix_auto="1" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="5" />
+				<Option compiler="avr-gcc" />
+				<Compiler>
+					<Add option="-g3" />
+				</Compiler>
+			</Target>
+			<Target title="Clean">
+				<Option output="bin/clean" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="obj/" />
+				<Option type="5" />
+				<Option compiler="avr-gcc" />
+			</Target>
+			<Target title="Program">
+				<Option output="bin/Release/Demo.elf" prefix_auto="1" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="5" />
+				<Option compiler="avr-gcc" />
+			</Target>
+			<Environment>
+				<Variable name="F_CPU" value="16000000" />
+				<Variable name="MCU" value="atmega1284" />
+			</Environment>
+		</Build>
+		<Compiler>
+			<Add option="-Os" />
+			<Add option="-Wall" />
+			<Add option="-x c" />
+			<Add option="-std=gnu99" />
+			<Add option="-mmcu=$$(MCU)" />
+			<Add option="-funsigned-char" />
+			<Add option="-funsigned-bitfields" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fdata-sections" />
+			<Add option="-fpack-struct" />
+			<Add option="-fshort-enums" />
+			<Add option="-mrelax" />
+			<Add option='-MD -MP -MF &quot;$$object.d&quot;' />
+			<Add option='-MT&quot;$$object.d&quot;' />
+			<Add option='-MT&quot;$$object&quot;' />
+			<Add option="-DF_CPU=$$(F_CPU)UL" />
+			<Add directory="$(#avr_libc.include)" />
+		</Compiler>
+		<Linker>
+			<Add option='-Wl,-Map=&quot;$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).map&quot;' />
+			<Add option="-Wl,--start-group -Wl,-lm  -Wl,--end-group" />
+			<Add option="-Wl,--gc-sections" />
+			<Add option="-mrelax" />
+			<Add option="-mmcu=$$(MCU)" />
+		</Linker>
+		<ExtraCommands>
+			<Add before='cmd /c &quot;if exist $(TARGET_OUTPUT_FILE)  $(#AVR_GCC.bin)\avr-size $(TARGET_OUTPUT_FILE)&quot;' />
+			<Add after='postBuild.bat &quot;$(TARGET_NAME)&quot; &quot;$(TARGET_OUTPUT_FILE)&quot; &quot;$(TARGET_OUTPUT_DIR)&quot; &quot;$(TARGET_OBJECT_DIR)&quot; &quot;$(#AVRDUDE)&quot; &quot;$(#AVRDUDE.programmer)&quot; &quot;$(MCU)&quot;' />
+			<Mode after="always" />
+		</ExtraCommands>
+		<Unit filename="Demo.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/dataflash.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/dataflash.h">
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/fifo.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/fifo.h">
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/font.h">
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/lcd.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/lcd.h">
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/music.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/music.h">
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/spi.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/spi.h">
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/twi.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/twi.h">
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/uart.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="includes/uart.h">
+			<Option target="Debug" />
+			<Option target="Program" />
+		</Unit>
+		<Unit filename="postBuild.bat" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
